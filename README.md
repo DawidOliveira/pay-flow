@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/dawidoliveira/pay-flow">
-    <img src="https://github.com/DawidOliveira/pay-flow/tree/master/assets/screenshots/nlw.png" width="844" height="248"/>
+    <img src="https://raw.githubusercontent.com/DawidOliveira/pay-flow/master/assets/screenshots/nlw.png"/>
   </a>
 </p>
 <p align="center">NLW/Together - Flutter - PayFlow</p>
