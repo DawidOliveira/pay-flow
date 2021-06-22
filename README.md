@@ -1,16 +1,43 @@
-# payflow
+<p align="center">
+  <a href="https://github.com/dawidoliveira/pay-flow">
+    <img src="https://github.com/DawidOliveira/pay-flow/tree/master/assets/screenshots/nlw.png" width="844" height="248"/>
+  </a>
+</p>
+<p align="center">NLW/Together - Flutter - PayFlow</p>
 
-A new Flutter project.
+ <p align="center">
+ <img src="https://img.shields.io/github/issues/dawidoliveira/pay-flow?style=for-the-badge"/>
+ <img src="https://img.shields.io/github/forks/dawidoliveira/pay-flow?style=for-the-badge"/>
+ <img src="https://img.shields.io/github/stars/dawidoliveira/pay-flow?style=for-the-badge"/>
+ <img src="https://img.shields.io/github/license/dawidoliveira/pay-flow?style=for-the-badge"/>
+ </p>
 
-## Getting Started
+## ✅ Descrição do projeto
+Um app para gerenciar seus boletos.
 
-This project is a starting point for a Flutter application.
+## ✅ Plugins do Vscode
 
-A few resources to get you started if this is your first Flutter project:
+- Dart
+- Dracula Oficial
+- Flutter
+- Material Icon Theme
+- Dart Data Class Generator
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## ✅  Instalação
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Necessário:
+
+- [Flutter](flutter.dev) 2.2 ou superior
+- Visual Studio Code ou Android Studio
+- Git
+- ❌ Não é necessário instalar Android SDK nem AVD. A partir do Flutter 2.0.5 existe a versão "Chrome" ou "Edge"
+
+Instalação
+
+```
+$ git clone https://github.com/DawidOliveira/pay-flow.git
+$ cd pay-flow
+$ code . 
+```
+
+Após abrir o Visual Studio Code, aperte F5 para compilar e executar o projeto.
