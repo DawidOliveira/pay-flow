@@ -1,7 +1,11 @@
+import 'package:flutter/cupertino.dart';
+
 class HomeController {
-  int currentPage = 0;
+  final currentPageNotifier = ValueNotifier<int>(0);
+
+  int get currentPage => currentPageNotifier.value;
 
   void setPage(int index) {
-    currentPage = index;
+    currentPageNotifier.value = index;
   }
 }

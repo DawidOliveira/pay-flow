@@ -7,6 +7,7 @@ class SetLabelButtons extends StatelessWidget {
   final String primaryLabel;
   final VoidCallback primaryOnPressed;
   final bool enablePrimaryColor;
+  final bool enableSecondaryColor;
   final String secondaryLabel;
   final VoidCallback secondaryOnPressed;
   const SetLabelButtons({
@@ -16,6 +17,7 @@ class SetLabelButtons extends StatelessWidget {
     required this.secondaryLabel,
     required this.secondaryOnPressed,
     this.enablePrimaryColor = false,
+    this.enableSecondaryColor = false,
   }) : super(key: key);
 
   @override
@@ -23,23 +25,38 @@ class SetLabelButtons extends StatelessWidget {
     return Container(
       color: AppColors.shape,
       height: 56,
-      child: Row(
+      child: Column(
         children: [
-          Expanded(
-            child: LabelButton(
-              label: primaryLabel,
-              style: enablePrimaryColor ? TextStyles.buttonPrimary : null,
-              onPressed: primaryOnPressed,
-            ),
-          ),
-          VerticalDivider(
+          Divider(
+            height: 0,
             thickness: 1,
+            color: AppColors.stroke,
           ),
-          Expanded(
-            child: LabelButton(
-              label: secondaryLabel,
-              onPressed: secondaryOnPressed,
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: LabelButton(
+                  label: primaryLabel,
+                  style: enablePrimaryColor ? TextStyles.buttonPrimary : null,
+                  onPressed: primaryOnPressed,
+                ),
+              ),
+              SizedBox(
+                height: 56,
+                child: VerticalDivider(
+                  thickness: 1,
+                  width: 0,
+                  color: AppColors.stroke,
+                ),
+              ),
+              Expanded(
+                child: LabelButton(
+                  label: secondaryLabel,
+                  onPressed: secondaryOnPressed,
+                  style: enableSecondaryColor ? TextStyles.buttonPrimary : null,
+                ),
+              ),
+            ],
           ),
         ],
       ),

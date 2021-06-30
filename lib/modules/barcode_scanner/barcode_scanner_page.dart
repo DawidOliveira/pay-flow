@@ -4,7 +4,6 @@ import 'package:payflow/modules/barcode_scanner/barcode_scanner_status.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 import 'package:payflow/shared/widgets/bottom_sheet/bottom_sheet_widget.dart';
-import 'package:payflow/shared/widgets/label_button/label_button.dart';
 import 'package:payflow/shared/widgets/set_label_buttons/set_label_buttons.dart';
 
 class BarcodeScannerPage extends StatefulWidget {
@@ -23,7 +22,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
     controller.getAvailableCameras();
     controller.statusNotifier.addListener(() {
       if (controller.status.hasBarcode) {
-        Navigator.of(context).pushReplacementNamed('/insert_boleto');
+        Navigator.of(context).pushReplacementNamed('/insert_boleto',
+            arguments: controller.status.barcode);
       }
     });
   }
@@ -44,7 +44,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
             builder: (_, value, __) {
               if (value.showCamera) {
                 return Container(
-                  child: value.cameraController!.buildPreview(),
+                  child: controller.cameraController!.buildPreview(),
                 );
               } else {
                 return Container();
@@ -70,7 +70,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 children: [
                   Expanded(
                     child: Container(
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(.6),
                     ),
                   ),
                   Expanded(
@@ -81,14 +81,16 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                   ),
                   Expanded(
                     child: Container(
-                      color: Colors.black,
+                      color: Colors.black.withOpacity(.6),
                     ),
                   ),
                 ],
               ),
               bottomNavigationBar: SetLabelButtons(
                 primaryLabel: "Inserir código do boleto",
-                primaryOnPressed: () {},
+                primaryOnPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/insert_boleto');
+                },
                 secondaryLabel: "Adicionar da galeria",
                 secondaryOnPressed: () {},
               ),
@@ -101,10 +103,13 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 return BottomSheetWidget(
                   primaryLabel: "Escanear novamente",
                   primaryOnPressed: () {
-                    controller.getAvailableCameras();
+                    controller.scanWithCamera();
                   },
                   secondaryLabel: "Digitar código",
-                  secondaryOnPressed: () {},
+                  secondaryOnPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed('/insert_boleto');
+                  },
                   title: "Não foi possível identificar um código de barras.",
                   subtitle:
                       "Tente escanear novamente ou digite o código do seu boleto.",
